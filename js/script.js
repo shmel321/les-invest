@@ -1,6 +1,5 @@
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Мобильное меню
   var navToggle = document.querySelector(".nav-toggle");
   var body = document.body;
 
@@ -11,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Закрытие меню по клику на ссылку
   var navLinks = document.querySelectorAll(".main-nav a");
   navLinks.forEach(function (link) {
     link.addEventListener("click", function () {
@@ -22,11 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Кликабельные карточки товаров (переход по клику на карточку)
   var productCards = document.querySelectorAll(".product-card[data-product-href]");
   productCards.forEach(function (card) {
     card.addEventListener("click", function (event) {
-      // Если клик по кнопке/ссылке внутри, используем стандартное поведение
       if (event.target.closest("a")) {
         return;
       }
@@ -37,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Галереи товаров
   var galleries = document.querySelectorAll("[data-gallery]");
   galleries.forEach(function (gallery) {
     var mainImg = gallery.querySelector("[data-gallery-main]");
@@ -54,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    // Лайтбокс при клике по основному изображению
     if (mainImg) {
       mainImg.addEventListener("click", function () {
         openLightbox(gallery, mainImg);
@@ -159,7 +153,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 200);
     }
 
-    // Навигация по стрелкам клавиатуры
     function keyHandler(e) {
       if (e.key === "Escape") {
         closeOverlay();
